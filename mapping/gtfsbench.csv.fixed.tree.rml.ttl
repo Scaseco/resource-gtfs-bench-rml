@@ -1,0 +1,1028 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rr:      <http://www.w3.org/ns/r2rml#>
+PREFIX schema:  <http://schema.org/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+<http://mapping.example.com/map_stoptimes_0>
+        rdf:type               rr:TriplesMap;
+        rdfs:label             "stoptimes";
+        <http://semweb.mmlab.be/ns/rml#logicalSource>
+                [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                  <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                          <http://semweb.mmlab.be/ns/ql#CSV>;
+                  <http://semweb.mmlab.be/ns/rml#source>
+                          "STOP_TIMES.csv"
+                ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_sequence";
+                                                    rr:datatype  xsd:integer;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#stopSequence>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "stop_id";
+                                                                           rr:parent  "stop_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  _:b0
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#stop>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_headsign";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#headsign>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "departure_time";
+                                                    rr:datatype  xsd:duration;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#departureTime>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:template  "http://transport.linkeddata.es/resource/PickupType/{pickup_type}";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#pickupType>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#StopTime>
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  rdf:type
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:template  "http://transport.linkeddata.es/resource/DropOffType/{drop_off_type}";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#dropOffType>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "trip_id";
+                                                                           rr:parent  "trip_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  _:b1
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#trip>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "arrival_time";
+                                                    rr:datatype  xsd:duration;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#arrivalTime>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "shape_dist_traveled";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#distanceTraveled>
+                                                  ]
+                               ];
+        rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                 rr:template  "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}"
+                               ] .
+
+<http://mapping.example.com/map_feed_0>
+        rdf:type               rr:TriplesMap;
+        rdfs:label             "feed";
+        <http://semweb.mmlab.be/ns/rml#logicalSource>
+                [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                  <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                          <http://semweb.mmlab.be/ns/ql#CSV>;
+                  <http://semweb.mmlab.be/ns/rml#source>
+                          "FEED_INFO.csv"
+                ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "feed_lang";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  dcterms:language
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "feed_start_date";
+                                                    rr:datatype  xsd:date;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  schema:startDate
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#Feed>
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  rdf:type
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "feed_publisher_name";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  dcterms:publisher
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "feed_publisher_url";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  foaf:page
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "feed_end_date";
+                                                    rr:datatype  xsd:date;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  schema:endDate
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "feed_version";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  schema:version
+                                                  ]
+                               ];
+        rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                 rr:template  "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}"
+                               ] .
+
+_:b0    rdf:type               rr:TriplesMap;
+        rdfs:label             "stops";
+        <http://semweb.mmlab.be/ns/rml#logicalSource>
+                [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                  <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                          <http://semweb.mmlab.be/ns/ql#CSV>;
+                  <http://semweb.mmlab.be/ns/rml#source>
+                          "STOPS.csv"
+                ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_timezone";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#timeZone>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:template  "http://transport.linkeddata.es/resource/WheelchairBoardingStatus/{wheelchair_boarding}";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#wheelchairAccessible>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:template  "http://transport.linkeddata.es/resource/LocationType/{location_type}";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#locationType>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_desc";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  dcterms:description
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_code";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#code>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_name";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  foaf:name
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_lon";
+                                                    rr:datatype  xsd:double;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#Stop>
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  rdf:type
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_id";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  dcterms:identifier
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_url";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  foaf:page
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "stop_lat";
+                                                    rr:datatype  xsd:double;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "zone_id";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#zone>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "parent_station";
+                                                                           rr:parent  "stop_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  _:b0
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#parentStation>
+                                                  ]
+                               ];
+        rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                 rr:template  "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}"
+                               ] .
+
+_:b1    rdf:type               rr:TriplesMap;
+        rdfs:label             "trips";
+        <http://semweb.mmlab.be/ns/rml#logicalSource>
+                [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                  <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                          <http://semweb.mmlab.be/ns/ql#CSV>;
+                  <http://semweb.mmlab.be/ns/rml#source>
+                          "TRIPS.csv"
+                ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "trip_headsign";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#headsign>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#Trip>
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  rdf:type
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "service_id";
+                                                                           rr:parent  "service_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                           rdfs:label             "services1";
+                                                                           <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                   [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                             <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#source>
+                                                                                             "CALENDAR.csv"
+                                                                                   ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#Service>
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  rdf:type
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                                                                                       rr:joinCondition     [ rr:child   "service_id";
+                                                                                                                                              rr:parent  "service_id"
+                                                                                                                                            ];
+                                                                                                                       rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                                                                                              rdfs:label             "calendar_rules";
+                                                                                                                                              <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                                                                                      [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                                                                                                <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#source>
+                                                                                                                                                                "CALENDAR.csv"
+                                                                                                                                                      ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "tuesday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#tuesday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#CalendarRule>
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  rdf:type
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "thursday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#thursday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "sunday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#sunday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "friday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#friday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "saturday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#saturday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "monday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#monday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "start_date";
+                                                                                                                                                                                          rr:datatype  xsd:date;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  schema:startDate
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "wednesday";
+                                                                                                                                                                                          rr:datatype  xsd:boolean;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#wednesday>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "end_date";
+                                                                                                                                                                                          rr:datatype  xsd:date;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  schema:endDate
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                                                                                       rr:template  "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}"
+                                                                                                                                                                     ]
+                                                                                                                                            ]
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#serviceRule>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                    rr:template  "http://transport.linkeddata.es/madrid/metro/services/{service_id}"
+                                                                                                  ]
+                                                                         ]
+                                                  ];
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "service_id";
+                                                                           rr:parent  "service_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                           rdfs:label             "services2";
+                                                                           <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                   [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                             <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#source>
+                                                                                             "CALENDAR_DATES.csv"
+                                                                                   ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                                                                                       rr:joinCondition     [ rr:child   "service_id";
+                                                                                                                                              rr:parent  "service_id"
+                                                                                                                                            ];
+                                                                                                                       rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                                                                                              rdfs:label             "calendar_date_rules";
+                                                                                                                                              <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                                                                                      [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                                                                                                <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#source>
+                                                                                                                                                                "CALENDAR_DATES.csv"
+                                                                                                                                                      ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "exception_type";
+                                                                                                                                                                                          rr:datatype  xsd:integer;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#dateAddition>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#CalendarDateRule>
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  rdf:type
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "date";
+                                                                                                                                                                                          rr:datatype  xsd:date;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  dcterms:date
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                                                                                       rr:template  "http://transport.linkeddata.es/madrid/metro/calendar_date_rule/{service_id}-{date}"
+                                                                                                                                                                     ]
+                                                                                                                                            ]
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#serviceRule>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#Service>
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  rdf:type
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                    rr:template  "http://transport.linkeddata.es/madrid/metro/services/{service_id}"
+                                                                                                  ]
+                                                                         ]
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#service>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "trip_short_name";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#shortName>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "direction_id";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#direction>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:template  "http://transport.linkeddata.es/resource/WheelchairBoardingStatus/{wheelchair_accessible}";
+                                                    rr:termType  rr:IRI
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#wheelchairAccessible>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "route_id";
+                                                                           rr:parent  "route_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                           rdfs:label             "routes";
+                                                                           <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                   [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                             <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#source>
+                                                                                             "ROUTES.csv"
+                                                                                   ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                                                                                       rr:joinCondition     [ rr:child   "agency_id";
+                                                                                                                                              rr:parent  "agency_id"
+                                                                                                                                            ];
+                                                                                                                       rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                                                                                              rdfs:label             "agency";
+                                                                                                                                              <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                                                                                      [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                                                                                                <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#source>
+                                                                                                                                                                "AGENCY.csv"
+                                                                                                                                                      ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "agency_name";
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  foaf:name
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "agency_phone";
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  foaf:phone
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "agency_fare_url";
+                                                                                                                                                                                          rr:termType  rr:IRI
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#fareUrl>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#Agency>
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  rdf:type
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "agency_url";
+                                                                                                                                                                                          rr:termType  rr:IRI
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  foaf:page
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "agency_timezone";
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#timeZone>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "agency_lang";
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  dcterms:language
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                                                                                       rr:template  "http://transport.linkeddata.es/madrid/agency/{agency_id}"
+                                                                                                                                                                     ]
+                                                                                                                                            ]
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#agency>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                               "route_long_name";
+                                                                                                                       rr:termType  rr:Literal
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#longName>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#Route>
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  rdf:type
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                               "route_color";
+                                                                                                                       rr:termType  rr:Literal
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#color>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                               "route_desc";
+                                                                                                                       rr:termType  rr:Literal
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  dcterms:description
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                               "route_url";
+                                                                                                                       rr:termType  rr:IRI
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#routeUrl>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       rr:template  "http://transport.linkeddata.es/resource/RouteType/{route_type}";
+                                                                                                                       rr:termType  rr:IRI
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#routeType>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                               "route_short_name";
+                                                                                                                       rr:termType  rr:Literal
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#shortName>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                               "route_text_color";
+                                                                                                                       rr:termType  rr:Literal
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#textColor>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                    rr:template  "http://transport.linkeddata.es/madrid/metro/routes/{route_id}"
+                                                                                                  ]
+                                                                         ]
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#route>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "shape_id";
+                                                                           rr:parent  "shape_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                           rdfs:label             "shapes";
+                                                                           <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                   [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                             <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                     <http://semweb.mmlab.be/ns/rml#source>
+                                                                                             "SHAPES.csv"
+                                                                                   ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#Shape>
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  rdf:type
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                    rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                                                                                       rr:joinCondition     [ rr:child   "shape_id";
+                                                                                                                                              rr:parent  "shape_id"
+                                                                                                                                            ];
+                                                                                                                       rr:parentTriplesMap  [ rdf:type               rr:TriplesMap;
+                                                                                                                                              rdfs:label             "shape_points";
+                                                                                                                                              <http://semweb.mmlab.be/ns/rml#logicalSource>
+                                                                                                                                                      [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                                                                                                                                                                <http://semweb.mmlab.be/ns/ql#CSV>;
+                                                                                                                                                        <http://semweb.mmlab.be/ns/rml#source>
+                                                                                                                                                                "SHAPES.csv"
+                                                                                                                                                      ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "shape_pt_lon";
+                                                                                                                                                                                          rr:datatype  xsd:double;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "shape_pt_lat";
+                                                                                                                                                                                          rr:datatype  xsd:double;
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "shape_dist_traveled";
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#distanceTraveled>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          <http://semweb.mmlab.be/ns/rml#reference>
+                                                                                                                                                                                                  "shape_pt_sequence";
+                                                                                                                                                                                          rr:termType  rr:Literal
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#pointSequence>
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                                                                                                                                                       rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                                                                                                                                                          rr:constant  <http://vocab.gtfs.org/terms#ShapePoint>
+                                                                                                                                                                                        ];
+                                                                                                                                                                       rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                                                                                          rr:constant  rdf:type
+                                                                                                                                                                                        ]
+                                                                                                                                                                     ];
+                                                                                                                                              rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                                                                                       rr:template  "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}"
+                                                                                                                                                                     ]
+                                                                                                                                            ]
+                                                                                                                     ];
+                                                                                                    rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                                                                                       rr:constant  <http://vocab.gtfs.org/terms#shapePoint>
+                                                                                                                     ]
+                                                                                                  ];
+                                                                           rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                                                                                    rr:template  "http://transport.linkeddata.es/madrid/metro/shape/{shape_id}"
+                                                                                                  ]
+                                                                         ]
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#shape>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "block_id";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#block>
+                                                  ]
+                               ];
+        rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                 rr:template  "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}"
+                               ] .
+
+<http://mapping.example.com/map_frequencies_0>
+        rdf:type               rr:TriplesMap;
+        rdfs:label             "frequencies";
+        <http://semweb.mmlab.be/ns/rml#logicalSource>
+                [ rdf:type  <http://semweb.mmlab.be/ns/rml#LogicalSource>;
+                  <http://semweb.mmlab.be/ns/rml#referenceFormulation>
+                          <http://semweb.mmlab.be/ns/ql#CSV>;
+                  <http://semweb.mmlab.be/ns/rml#source>
+                          "FREQUENCIES.csv"
+                ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "start_time";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#startTime>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type             rr:ObjectMap;
+                                                    rr:joinCondition     [ rr:child   "trip_id";
+                                                                           rr:parent  "trip_id"
+                                                                         ];
+                                                    rr:parentTriplesMap  _:b1
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#trip>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "end_time";
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#endTime>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "headway_secs";
+                                                    rr:datatype  xsd:integer;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#headwaySeconds>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    <http://semweb.mmlab.be/ns/rml#reference>
+                                                            "exact_times";
+                                                    rr:datatype  xsd:boolean;
+                                                    rr:termType  rr:Literal
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#exactTimes>
+                                                  ]
+                               ];
+        rr:predicateObjectMap  [ rdf:type         rr:PredicateObjectMap;
+                                 rr:objectMap     [ rdf:type     rr:ObjectMap;
+                                                    rr:constant  <http://vocab.gtfs.org/terms#Frequency>
+                                                  ];
+                                 rr:predicateMap  [ rdf:type     rr:PredicateMap;
+                                                    rr:constant  rdf:type
+                                                  ]
+                               ];
+        rr:subjectMap          [ rdf:type     rr:SubjectMap;
+                                 rr:template  "http://transport.linkeddata.es/madrid/metro/frequency/{trip_id}-{start_time}"
+                               ] .
