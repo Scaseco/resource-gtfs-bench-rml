@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.aksw.data.config</groupId>
+    <artifactId>aksw-data-deployment</artifactId>
+    <version>0.0.8</version>
+    <relativePath></relativePath>
+  </parent>
+
+  <groupId>org.aksw.data.gtfsbench</groupId>
+  <artifactId>gtfsbench-rdf-1-consumer</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <data.workdir>${project.build.directory}/resources</data.workdir>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.aksw.data.gtfsbench</groupId>
+      <artifactId>gtfsbench-csv-1-deps</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <id>copy-resource-dependencies</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${data.workdir}</outputDirectory>
+              <includeTypes>csv</includeTypes>
+              <stripVersion>true</stripVersion>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

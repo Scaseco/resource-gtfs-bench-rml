@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.aksw.data.gtfsbench</groupId>
+    <artifactId>gtfsbench-csv-1-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <!-- <relativePath></relativePath> -->
+  </parent>
+
+  <artifactId>gtfsbench-csv-1-deps</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>GTFS-Madrid-Bench CSV Data - Scale 1 - Deps</name>
+  <description>Dependency artifact with the individual files</description>
+  <url>https://github.com/oeg-upm/gtfs-bench</url>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+    </license>
+  </licenses>
+
+  <properties>
+    <maven-deploy-plugin.skip>false</maven-deploy-plugin.skip>
+    <maven-install-plugin.skip>false</maven-install-plugin.skip>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>AGENCY</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>CALENDAR</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>CALENDAR_DATES</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>FEED_INFO</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>FREQUENCIES</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>ROUTES</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>SHAPES</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>STOPS</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>STOP_TIMES</classifier>
+      <type>csv</type>
+    </dependency>
+    <dependency>
+      <groupId>${bundle.groupId}</groupId>
+      <artifactId>${bundle.artifactId}</artifactId>
+      <version>${bundle.version}</version>
+      <classifier>TRIPS</classifier>
+      <type>csv</type>
+    </dependency>
+  </dependencies>
+</project>
+
