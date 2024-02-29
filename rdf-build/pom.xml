@@ -72,7 +72,7 @@
 
 			<plugin>
 				<groupId>org.aksw.maven.plugins</groupId>
-				<artifactId>rpt-maven-plugin</artifactId>
+				<artifactId>rpt-full-maven-plugin</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<executions>
 					<execution>
