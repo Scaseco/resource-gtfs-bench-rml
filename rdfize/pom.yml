@@ -1,0 +1,60 @@
+modelEncoding: UTF-8
+modelVersion: 4.0.0
+parent: {artifactId: aksw-data-deployment, groupId: org.aksw.data.config, relativePath: '',
+  version: 0.0.8}
+groupId: org.aksw.data.gtfsbench
+artifactId: gtfsbench-rdf-csv-1
+version: 0.0.1-SNAPSHOT
+packaging: pom
+properties: {output.filetype: ttl, output.path: '${data.workdir}/generated-rdf.${output.filetype}',
+  data.workdir: '${project.build.directory}/resources'}
+dependencies:
+- {groupId: org.aksw.data.gtfsbench, artifactId: gtfsbench-csv-1, version: 0.0.1-SNAPSHOT,
+  type: zip}
+- {groupId: org.aksw.data.gtfsbench, artifactId: mapping, version: 0.0.1-SNAPSHOT,
+  type: rml.ttl}
+build:
+  plugins:
+  - groupId: org.apache.maven.plugins
+    artifactId: maven-dependency-plugin
+    version: 3.6.1
+    executions:
+    - configuration: {outputDirectory: '${data.workdir}', includeTypes: rml.ttl, stripVersion: true}
+      goals: [copy-dependencies]
+      id: copy-resource-dependencies
+      inherited: true
+      phase: generate-resources
+      priority: 0
+    - configuration: {outputDirectory: '${data.workdir}', includeTypes: zip}
+      goals: [unpack-dependencies]
+      id: unzip-resource-dependencies
+      inherited: true
+      phase: generate-resources
+      priority: 0
+  - groupId: org.aksw.maven.plugins
+    artifactId: rpt-maven-plugin
+    version: 0.0.1-SNAPSHOT
+    executions:
+    - configuration:
+        outputFile: ${output.path}
+        outputFormat: ${output.filetype}
+        workDirectory: ${data.workdir}
+        mappings:
+        - {type: file, value: '${data.workdir}/mapping.rml.ttl'}
+      goals: [rml]
+      id: generate-rdf
+      inherited: true
+      phase: process-resources
+      priority: 0
+  - groupId: org.codehaus.mojo
+    artifactId: build-helper-maven-plugin
+    executions:
+    - configuration:
+        artifacts:
+        - {file: '${output.path}', type: '${output.filetype}'}
+      goals: [attach-artifact]
+      id: attach-artifacts
+      inherited: true
+      phase: package
+      priority: 0
+childProjectUrlInheritAppendPath: true
